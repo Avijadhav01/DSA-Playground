@@ -1,0 +1,10 @@
+// Find maximum & minimum
+// Sum of all elements
+// Reverse an array
+// Linear search
+// Second largest element
+// Check if array is sorted
+// Count frequency of elements
+// Remove duplicates from sorted array
+// Move all zeros to end
+
