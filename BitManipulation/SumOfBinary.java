@@ -4,6 +4,28 @@ public class SumOfBinary {
     System.out.println(result);
   }
 
+  // ------------------------------------------------------------
+  // LeetCode 67 - Add Binary
+  //
+  // Idea:
+  // Add binary digits from right to left,
+  // just like normal addition.
+  //
+  // Steps:
+  // 1. Start from last index of both strings.
+  // 2. Add bits and carry.
+  // 3. Append (sum % 2) to result.
+  // 4. Update carry = sum / 2.
+  // 5. Reverse final string.
+  //
+  // Example:
+  // 110
+  // 010
+  // ----
+  // 1000
+  //
+  // Time Complexity : O(max(n, m))
+  // Space Complexity : O(max(n, m))
   static String addBinary(String a, String b) {
     StringBuilder sum = new StringBuilder("");
     int carry = 0;
