@@ -1,8 +1,8 @@
 public class AToPowerB {
 
   public static void main(String[] args) {
-    int base = 3;
-    int pow = 5;
+    int base = 3; // 11
+    int pow = 3; // 11
 
     power(base, pow);
   }

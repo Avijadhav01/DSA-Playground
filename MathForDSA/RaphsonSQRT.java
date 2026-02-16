@@ -22,14 +22,11 @@ public class RaphsonSQRT {
 
       // stop when change between two consecutive values is very small
       // meaning we have reached close enough to actual square root
-      if (Math.abs(root - x) < 1) {
+      if (Math.abs(root - x) < 1) // write value smaller that 1 to get more closer to sqrt
         break;
-      }
 
-      // update guess for next iteration
-      x = root;
+      x = root; // update guess for next iteration
     }
-
     return root;
   }
 }

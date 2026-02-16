@@ -20,9 +20,7 @@ public class NonRepeatingNo {
   // So all repeating elements cancel each other,
   // leaving only the non-repeating element.
   //
-  // Example:
-  // 2 ^ 3 ^ 2 ^ 5 ^ 4 ^ 4 ^ 3
-  // = 5
+  // Example: 2 ^ 3 ^ 2 ^ 5 ^ 4 ^ 4 ^ 3 = 5
   //
   // Time Complexity : O(n)
   // Space Complexity : O(1)
@@ -54,10 +52,9 @@ public class NonRepeatingNo {
     int result = 0;
 
     // checking every bit position
-    for (int bit = 0; bit < arr.length; bit++) {
+    for (int bit = 0; bit < 32; bit++) {
 
       int count = 0;
-
       // count set bits at current position
       for (int num : arr) {
         if ((num & (1 << bit)) != 0) {

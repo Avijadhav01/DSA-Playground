@@ -17,22 +17,20 @@ public class BinarySearchOnRotatedArray {
 
     if (arr[s] <= arr[mid]) {
       // left part sorted
-      if (tar >= arr[s] && tar <= arr[mid]) {
+      if (tar >= arr[s] && tar <= arr[mid])
         e = mid - 1;
-        return search(arr, tar, s, e);
-      } else {
+      else
         s = mid + 1;
-        return search(arr, tar, s, e);
-      }
+
+      return search(arr, tar, s, e);
     } else {
       // Right part is sorted
-      if (tar >= arr[mid] && tar <= arr[e]) {
+      if (tar >= arr[mid] && tar <= arr[e])
         s = mid + 1;
-        return search(arr, tar, s, e);
-      } else {
+      else
         e = mid - 1;
-        return search(arr, tar, s, e);
-      }
+
+      return search(arr, tar, s, e);
     }
   }
 }

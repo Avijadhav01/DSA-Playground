@@ -1,7 +1,10 @@
 public class SetBits {
 
   public static void main(String[] args) {
-    noOfSetBits(5); // 101
+    // noOfSetBits(5); // 101
+    rightMostSetBit(0b1011000); // 1010
+
+    // System.out.println(noOfDigitsInAnyBase(20, 10));
   }
 
   // ------------------------------------------------------------
@@ -29,22 +32,11 @@ public class SetBits {
   static void noOfSetBits(int n) {
 
     int count = 0;
-
     while (n > 0) {
       n = n & (n - 1);
       count++;
     }
-
     System.out.println(count);
-  }
-
-  static void rightMostSetBit() {
-    int n = 0b1000;
-    int rsb = n & (-n);
-
-    // Bit positions require log base 2
-    int position = noOfDigitsInAnyBase(rsb, 2) + 1;
-    System.out.println(position);
   }
 
   // Very Important
@@ -69,7 +61,38 @@ public class SetBits {
   // Time Complexity : O(1)
   // Space Complexity : O(1)
   static int noOfDigitsInAnyBase(int num, int base) {
-    int digits = (int) (Math.log(num) / Math.log(base) + 1);
+    int digits = (int) (Math.log(num) / Math.log(base)) + 1;
     return digits;
   }
+
+  /*
+   * n & (-n) gives the value of the rightmost set bit.
+   * 
+   * How it works:
+   * -n is the two's complement of n (invert bits + 1)
+   * Performing n & (-n) leaves only the rightmost set bit.
+   * 
+   * Example:
+   * n = 1011000
+   * -n = 0101000 (two's complement)
+   * rsb = 0001000
+   * 
+   * To find the position of this bit:
+   * - rsb contains only one set bit.
+   * - Take log base 2 to get its index.
+   * - Add 1 because positions start from 1.
+   * 
+   * Example:
+   * rsb = 8 (1000)
+   * log2(8) = 3 // Give index of set bit as 1000 ; 1 is at index 3
+   * position = 3 + 1 = 4
+   */
+  static void rightMostSetBit(int n) {
+
+    int rsb = n & (-n);
+
+    int position = (int) (Math.log(rsb) / Math.log(2)) + 1;
+    System.out.println(position);
+  }
+
 }

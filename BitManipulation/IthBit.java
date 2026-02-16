@@ -2,7 +2,11 @@ public class IthBit {
 
   public static void main(String[] args) {
     // setIthBit(0b1010110, 4);
-    resetIthBit(0b1011001, 4);
+    // setIthBit(20, 1); // (20)_10 = 10100 ; Ans = 10101
+
+    // resetIthBit(0b1011001, 4);
+    // resetIthBit(20, 3); // (20)_10 = 10100 ; Ans = 10000
+
     // findIthBit(4);
   }
 
@@ -43,7 +47,7 @@ public class IthBit {
   }
 
   // ------------------------------------------------------------
-  // Find value of ith bit (0 or 1)
+  // Find value at ith bit (0 or 1)
   //
   // Idea:
   // AND with mask keeps only ith bit.

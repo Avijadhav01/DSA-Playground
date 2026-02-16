@@ -8,16 +8,6 @@ public class BinarySearchByRecursion {
     System.out.println(result);
   }
 
-  /**
-   * Recursive Binary Search Function
-   * 
-   * @param arr    - The sorted array to search in
-   * @param target - The element to search for
-   * @param s      - Start index of current search interval
-   * @param e      - End index of current search interval
-   * @return Index of target if found, else -1
-   */
-
   static int BinarySearch(int[] arr, int target, int s, int e) {
 
     // Base case: start index crosses end index → element not found

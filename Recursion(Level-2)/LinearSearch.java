@@ -109,5 +109,5 @@ public class LinearSearch {
   // ✅ Then Why Do We Use This Approach?
 
   // Because this version teaches an important recursion pattern.
-  // This pattern is: Answer = My Work + Answer from Smaller Problem
+  // That pattern is: Answer = My Work + Answer from Smaller Problem
 }

@@ -9,7 +9,6 @@ public class Factors {
   }
 
   // Brute force approach
-  // Checks every number from 1 to n
   // Time Complexity : O(n)
   static void factors1(int n) {
     for (int i = 1; i <= n; i++) {
@@ -22,9 +21,9 @@ public class Factors {
   }
 
   // Optimized approach using square root concept
-  // Factors always appear in pairs (i, n/i)
   // Time Complexity : O(sqrt(n))
   static void factors2(int n) {
+
     // iterate only till sqrt(n)
     for (int i = 1; (i * i) <= n; i++) {
       if ((n % i) == 0) {
@@ -34,7 +33,7 @@ public class Factors {
           System.out.print(i + " ");
         } else {
           // print both factors together
-          System.out.print(i + " " + n / i + " ");
+          System.out.print(i + " " + (n / i) + " ");
         }
       }
     }

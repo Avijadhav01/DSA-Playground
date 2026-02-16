@@ -40,13 +40,8 @@ public class NthMagicNo {
 
     while (n > 0) {
 
-      // extract last bit of n
       int bit = n & 1;
-
-      // move to next bit
       n >>= 1;
-
-      // if bit is 1, include current power of 5
       sum = sum + (bit * base);
 
       // move to next power of 5

@@ -11,6 +11,7 @@ public class Examples {
   //
   // Time Complexity : O(n)
   // Space Complexity : O(n) (recursive call stack)
+  //
   static int Fact(int n) {
     if (n <= 1)
       return 1;
@@ -24,6 +25,7 @@ public class Examples {
   //
   // Time Complexity : O(n)
   // Space Complexity : O(n)
+  //
   static int sumOfNto1(int n) {
     if (n == 1)
       return 1;
@@ -39,8 +41,11 @@ public class Examples {
   // This creates overlapping subproblems,
   // so many calls repeat again and again.
   //
-  // Time Complexity : O(2^n) (very slow for large n)
+  // Time Complexity : O(2^n)
   // Space Complexity : O(n)
+  //
+  // LeetCode Problem:
+  // 509. Fibonacci Number
   static int fibo(int n) {
     if (n < 2)
       return n;
@@ -52,8 +57,10 @@ public class Examples {
   // Fibonacci using mathematical formula (Binet's Formula)
   // Idea:
   // Direct mathematical computation instead of recursion.
-  // Faster but may lose precision for large n due to floating point.
+  // Faster but may lose precision for large n.
   //
+  // LeetCode Reference:
+  // 509. Fibonacci Number (alternative approach)
   static int fiboFormula(int n) {
     return (int) ((Math.pow(((1 + Math.sqrt(5)) / 2), n)
         + Math.pow(((1 - Math.sqrt(5)) / 2), n))
@@ -64,10 +71,10 @@ public class Examples {
   // Print numbers from n to 1
   // Idea:
   // Work is done BEFORE recursive call.
-  // so, current value prints first, then smaller problem executes.
   //
   // Time Complexity : O(n)
   // Space Complexity : O(n)
+  //
   static void printNTo1(int n) {
     if (n < 1)
       return;
@@ -80,11 +87,10 @@ public class Examples {
   // Print numbers from 1 to n
   // Idea:
   // Work is done AFTER recursive call.
-  // Recursion first reaches smallest value,
-  // then prints while returning back.
   //
   // Time Complexity : O(n)
   // Space Complexity : O(n)
+  //
   static void print1ToN(int n) {
     if (n == 0)
       return;
@@ -96,15 +102,14 @@ public class Examples {
   // ------------------------------------------------------------
   // Reverse a number (Method 1)
   // Idea:
-  // Extract last digit and keep building reversed number.
-  // reverseNum stores partial answer.
-  //
-  // Example:
-  // 123 -> 3 -> 32 -> 321
+  // Extract last digit and build reversed number.
   //
   // Time Complexity : O(d)
   // Space Complexity : O(d)
   // where d = number of digits
+  //
+  // LeetCode Problem:
+  // 7. Reverse Integer
   static int reverseANumber(int n, int reverseNum) {
     if (n == 0)
       return reverseNum;
@@ -113,25 +118,20 @@ public class Examples {
   }
 
   // ------------------------------------------------------------
-  // Reverse a number (Pure recursion, no extra argument)
+  // Reverse a number (Pure recursion)
   // Idea:
-  // Last digit must move to correct position in reversed number.
-  // We calculate how many digits remain and place it accordingly.
-  //
-  // Example:
-  // 1234 =
-  // 4*1000 + 3*100 + 2*10 + 1
-  //
-  // Each call places one digit correctly
-  // and recursion handles remaining digits.
+  // Place last digit at correct position using powers of 10.
   //
   // Time Complexity : O(d)
   // Space Complexity : O(d)
+  //
+  // LeetCode Problem:
+  // 7. Reverse Integer
   static int reverseANumber2(int n) {
     if (n < 10)
       return n;
 
-    int digits = (int) (Math.log10(n)); // Ex: for 142 it give digits = 2
+    int digits = (int) (Math.log10(n));
     int lastDigit = n % 10;
 
     return lastDigit * (int) Math.pow(10, digits)
@@ -141,13 +141,14 @@ public class Examples {
   // ------------------------------------------------------------
   // Sum of digits of a number
   // Idea:
-  // Separate last digit and add it to sum of remaining digits.
-  //
-  // Example:
-  // 154 = 4 + 5 + 1
+  // Add last digit with sum of remaining digits.
   //
   // Time Complexity : O(d)
   // Space Complexity : O(d)
+  //
+  // LeetCode Reference:
+  // Similar concept used in
+  // 258. Add Digits (optimized mathematical solution exists).
   static int sumOfDigits(int n) {
     if (n == 0)
       return 0;
@@ -155,11 +156,23 @@ public class Examples {
     return (n % 10) + sumOfDigits(n / 10);
   }
 
+  // ------------------------------------------------------------
+  // Palindrome number check
+  // Idea:
+  // Number is palindrome if it equals its reverse.
+  //
+  // LeetCode Problem:
+  // 9. Palindrome Number
   static boolean palin(int n) {
     return n == reverseANumber2(n);
   }
 
-  // Count no of zeros in number
+  // ------------------------------------------------------------
+  // Count number of zeros in a number
+  //
+  // Time Complexity : O(d)
+  // Space Complexity : O(d)
+  //
   static int countZero(int n, int counter) {
 
     if (n == 0)
@@ -169,10 +182,14 @@ public class Examples {
       return countZero(n / 10, ++counter);
     }
     return countZero(n / 10, counter);
-
   }
 
-  // LeetCode problem no 1342
+  // ------------------------------------------------------------
+  // LeetCode Problem 1342
+  // Number of Steps to Reduce a Number to Zero
+  //
+  // If number is even -> divide by 2
+  // If odd -> subtract 1
   static int numberOfSteps(int num) {
     return helper(num, 0);
   }
@@ -185,7 +202,6 @@ public class Examples {
       return helper(num / 2, ++stepsC);
     }
     return helper(--num, ++stepsC);
-
   }
 
 }
